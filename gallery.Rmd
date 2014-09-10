@@ -1,6 +1,47 @@
 ---
-title: "Usage"
+title: "Gallery"
 output: html_document
 ---
 
-Gallery goes here
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span3">
+<div id="toc">
+</div><!--/.well -->
+</div><!--/span-->
+<div class="span9">
+
+### First 
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et dui et ipsum posuere consequat ac quis est. Nullam nisl velit, egestas eu consequat id, dignissim ac mi. Nullam hendrerit justo magna, id tristique sem ultricies sed. Suspendisse auctor vitae lorem a congue. Vestibulum vel risus vel nisl scelerisque pellentesque non sit amet massa. Phasellus et commodo arcu, vitae ornare justo. Suspendisse pharetra nisi vitae est placerat rutrum. Ut varius, risus convallis fringilla maximus, tortor purus convallis lorem, vitae finibus nulla leo eget augue. Nunc sed malesuada turpis. Duis finibus pellentesque nulla, in bibendum enim pulvinar nec. Nam non gravida augue. Proin luctus massa a orci viverra eleifend. Vestibulum et fringilla massa, eget finibus arcu. Fusce quis elit ut urna tincidunt egestas id ac tellus.
+
+Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras pellentesque, augue id bibendum sodales, neque diam dapibus sem, eu auctor velit augue vitae justo. Cras sit amet lorem eu sem placerat mattis sed ut lorem. Nam accumsan justo dapibus ultricies consequat. Aliquam erat volutpat. Mauris placerat volutpat nisi ut vulputate. Nam iaculis leo ac facilisis tristique.
+
+### Second
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et dui et ipsum posuere consequat ac quis est. Nullam nisl velit, egestas eu consequat id, dignissim ac mi. Nullam hendrerit justo magna, id tristique sem ultricies sed. Suspendisse auctor vitae lorem a congue. Vestibulum vel risus vel nisl scelerisque pellentesque non sit amet massa. Phasellus et commodo arcu, vitae ornare justo. Suspendisse pharetra nisi vitae est placerat rutrum. Ut varius, risus convallis fringilla maximus, tortor purus convallis lorem, vitae finibus nulla leo eget augue. Nunc sed malesuada turpis. Duis finibus pellentesque nulla, in bibendum enim pulvinar nec. Nam non gravida augue. Proin luctus massa a orci viverra eleifend. Vestibulum et fringilla massa, eget finibus arcu. Fusce quis elit ut urna tincidunt egestas id ac tellus.
+
+Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras pellentesque, augue id bibendum sodales, neque diam dapibus sem, eu auctor velit augue vitae justo. Cras sit amet lorem eu sem placerat mattis sed ut lorem. Nam accumsan justo dapibus ultricies consequat. Aliquam erat volutpat. Mauris placerat volutpat nisi ut vulputate. Nam iaculis leo ac facilisis tristique.
+
+### Third
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et dui et ipsum posuere consequat ac quis est. Nullam nisl velit, egestas eu consequat id, dignissim ac mi. Nullam hendrerit justo magna, id tristique sem ultricies sed. Suspendisse auctor vitae lorem a congue. Vestibulum vel risus vel nisl scelerisque pellentesque non sit amet massa. Phasellus et commodo arcu, vitae ornare justo. Suspendisse pharetra nisi vitae est placerat rutrum. Ut varius, risus convallis fringilla maximus, tortor purus convallis lorem, vitae finibus nulla leo eget augue. Nunc sed malesuada turpis. Duis finibus pellentesque nulla, in bibendum enim pulvinar nec. Nam non gravida augue. Proin luctus massa a orci viverra eleifend. Vestibulum et fringilla massa, eget finibus arcu. Fusce quis elit ut urna tincidunt egestas id ac tellus.
+
+Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras pellentesque, augue id bibendum sodales, neque diam dapibus sem, eu auctor velit augue vitae justo. Cras sit amet lorem eu sem placerat mattis sed ut lorem. Nam accumsan justo dapibus ultricies consequat. Aliquam erat volutpat. Mauris placerat volutpat nisi ut vulputate. Nam iaculis leo ac facilisis tristique.
+
+</div>
+</div>
+</div>
+
+
+
+
+
+<script>
+$(function() { 
+$("#toc").tocify({
+  selectors: "h3,h4"
+}); 
+});
+</script>
+

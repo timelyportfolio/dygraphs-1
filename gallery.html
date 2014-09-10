@@ -10,7 +10,7 @@
 
 
 
-<title>Usage</title>
+<title>Gallery</title>
 
 <script src="libs/jquery-1.11.0/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -56,7 +56,12 @@ body {
 
 </style>
 
-<link rel="stylesheet" href="libs/font-awesome-4.1.0/css/font-awesome.min.css"/>
+<link type="text/css" rel="stylesheet" href="libs/font-awesome-4.1.0/css/font-awesome.min.css"/>
+<link type="text/css" rel="stylesheet" href="libs/tocify-1.9/jquery.tocify.css" />
+
+<script src="libs/jqueryui-1.11.1/jquery-ui.custom.js"></script>
+
+<script src="libs/tocify-1.9/jquery.tocify.js"></script>
 
 <style type="text/css">code{white-space: pre;}</style>
 <link rel="stylesheet"
@@ -119,11 +124,39 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 </div>
 
 <div id="header">
-<h1 class="title">Usage</h1>
+<h1 class="title">Gallery</h1>
 </div>
 
 
-<p>Gallery goes here</p>
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span3">
+<div id="toc">
+
+</div>
+<!--/.well -->
+</div>
+<!--/span-->
+<div class="span9">
+<h3>First</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et dui et ipsum posuere consequat ac quis est. Nullam nisl velit, egestas eu consequat id, dignissim ac mi. Nullam hendrerit justo magna, id tristique sem ultricies sed. Suspendisse auctor vitae lorem a congue. Vestibulum vel risus vel nisl scelerisque pellentesque non sit amet massa. Phasellus et commodo arcu, vitae ornare justo. Suspendisse pharetra nisi vitae est placerat rutrum. Ut varius, risus convallis fringilla maximus, tortor purus convallis lorem, vitae finibus nulla leo eget augue. Nunc sed malesuada turpis. Duis finibus pellentesque nulla, in bibendum enim pulvinar nec. Nam non gravida augue. Proin luctus massa a orci viverra eleifend. Vestibulum et fringilla massa, eget finibus arcu. Fusce quis elit ut urna tincidunt egestas id ac tellus.</p>
+<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras pellentesque, augue id bibendum sodales, neque diam dapibus sem, eu auctor velit augue vitae justo. Cras sit amet lorem eu sem placerat mattis sed ut lorem. Nam accumsan justo dapibus ultricies consequat. Aliquam erat volutpat. Mauris placerat volutpat nisi ut vulputate. Nam iaculis leo ac facilisis tristique.</p>
+<h3>Second</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et dui et ipsum posuere consequat ac quis est. Nullam nisl velit, egestas eu consequat id, dignissim ac mi. Nullam hendrerit justo magna, id tristique sem ultricies sed. Suspendisse auctor vitae lorem a congue. Vestibulum vel risus vel nisl scelerisque pellentesque non sit amet massa. Phasellus et commodo arcu, vitae ornare justo. Suspendisse pharetra nisi vitae est placerat rutrum. Ut varius, risus convallis fringilla maximus, tortor purus convallis lorem, vitae finibus nulla leo eget augue. Nunc sed malesuada turpis. Duis finibus pellentesque nulla, in bibendum enim pulvinar nec. Nam non gravida augue. Proin luctus massa a orci viverra eleifend. Vestibulum et fringilla massa, eget finibus arcu. Fusce quis elit ut urna tincidunt egestas id ac tellus.</p>
+<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras pellentesque, augue id bibendum sodales, neque diam dapibus sem, eu auctor velit augue vitae justo. Cras sit amet lorem eu sem placerat mattis sed ut lorem. Nam accumsan justo dapibus ultricies consequat. Aliquam erat volutpat. Mauris placerat volutpat nisi ut vulputate. Nam iaculis leo ac facilisis tristique.</p>
+<h3>Third</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et dui et ipsum posuere consequat ac quis est. Nullam nisl velit, egestas eu consequat id, dignissim ac mi. Nullam hendrerit justo magna, id tristique sem ultricies sed. Suspendisse auctor vitae lorem a congue. Vestibulum vel risus vel nisl scelerisque pellentesque non sit amet massa. Phasellus et commodo arcu, vitae ornare justo. Suspendisse pharetra nisi vitae est placerat rutrum. Ut varius, risus convallis fringilla maximus, tortor purus convallis lorem, vitae finibus nulla leo eget augue. Nunc sed malesuada turpis. Duis finibus pellentesque nulla, in bibendum enim pulvinar nec. Nam non gravida augue. Proin luctus massa a orci viverra eleifend. Vestibulum et fringilla massa, eget finibus arcu. Fusce quis elit ut urna tincidunt egestas id ac tellus.</p>
+<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras pellentesque, augue id bibendum sodales, neque diam dapibus sem, eu auctor velit augue vitae justo. Cras sit amet lorem eu sem placerat mattis sed ut lorem. Nam accumsan justo dapibus ultricies consequat. Aliquam erat volutpat. Mauris placerat volutpat nisi ut vulputate. Nam iaculis leo ac facilisis tristique.</p>
+</div>
+</div>
+</div>
+<script>
+$(function() { 
+$("#toc").tocify({
+  selectors: "h3,h4"
+}); 
+});
+</script>
 
 
 <!-- some extra javascript for older browsers -->
@@ -133,20 +166,10 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 
 // manage active state of menu based on current page
 $(document).ready(function () {
-
     // active menu
     href = window.location.pathname
     href = href.substr(href.lastIndexOf('/') + 1)
     $('a[href="' + href + '"]').parent().addClass('active');
-
-    // manage active menu header
-    //if (href.startsWith('authoring_'))
-    //  $('a[href="' + 'authoring' + '"]').parent().addClass('active');
-    //else if (href.endsWith('_format.html'))
-    //  $('a[href="' + 'formats' + '"]').parent().addClass('active');
-    //else if (href.startsWith('developer_'))
-    //  $('a[href="' + 'developer' + '"]').parent().addClass('active');
-
 });
 
 </script>
