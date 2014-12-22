@@ -56,6 +56,7 @@ dygraph <- function(data, main = NULL, xlab = NULL, ylab = NULL,
   x <- list()
   x$attrs <- attrs
   x$scale <- periodicity$scale
+  x$timezone <- "utc"
   x$group <- group
   x$annotations <- list()
   x$shadings <- list()

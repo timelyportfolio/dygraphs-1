@@ -132,7 +132,9 @@
 #' @param timingName Set this option to log timing information. The value of the
 #'   option will be logged along with the timimg, so that you can distinguish 
 #'   multiple dygraphs on the same page.
-#' @param fixedDataTimezone Boolean, fixed timezone to data timezone ? FALSE by default   
+#' @param timezone Timezone for display of x-axis. 'utc' for universal time (the
+#'   default); 'local' to use the time zone local to the viewer of the chart; 
+#'   'data' to use the \code{tzone} attribute of the input data;
 #' @return dygraph with additional options
 #'   
 #' @note See the \href{http://rstudio.github.io/dygraphs/}{online documentation}
@@ -180,7 +182,7 @@ dyOptions <- function(dygraph,
                       panEdgeFraction = NULL,
                       animatedZooms = FALSE,
                       timingName = NULL,
-                      fixedDataTimezone = FALSE) {
+                      timezone = c("utc", "local", "data")) {
   options <- list()
   options$stackedGraph <- stackedGraph
   options$fillGraph <- fillGraph
@@ -226,18 +228,18 @@ dyOptions <- function(dygraph,
   # merge options into attrs
   dygraph$x$attrs <- mergeLists(dygraph$x$attrs, options)
    
-  # fixed data timezone ?
-  data.timezone <- attr(attr(dygraph$x, "time"),"tzone")
-  if(is.null(data.timezone)){
-    data.timezone <- ""
-  }
-  dygraph$x$fixedtz <- fixedDataTimezone
-  if(fixedDataTimezone & data.timezone==""){
-    warning("Can't fixe tz cause no informed tz in data")
-    dygraph$x$fixedtz <- FALSE
-  }
-  dygraph$x$tzone <- data.timezone
+  # get timezone
+  dygraph$x$timezone <- match.arg(timezone)
   
+  # if 'data' then extract the timezone from the data
+  if (identical(dygraph$x$timezone, "data")) {
+    dataTimzone <- attr(attr(dygraph$x, "time"), "tzone")
+    if (!is.null(dataTimezone))
+      dygraph$x$timezone <- dataTimzone
+    else
+      warning("timezone = 'data' specified but input series has no timezone")
+  }
+    
   # return modified dygraph
   dygraph
 }

@@ -30,19 +30,23 @@ HTMLWidgets.widget({
         x.attrs.legend = "always";
     }
     
-    // set appropriated function in case of fixed tz
-    if ((attrs.axes.x.axisLabelFormatter === undefined) && x.fixedtz)
-      attrs.axes.x.axisLabelFormatter = this.xAxisLabelFormatterFixedTZ(x.tzone);
+    // if timezone isn't utc then do custom formatting
+    if (x.timezone !== "utc") {
       
-    if ((attrs.axes.x.valueFormatter === undefined) && x.fixedtz)
-      attrs.axes.x.valueFormatter = this.xValueFormatterFixedTZ(x.scale, x.tzone);
-
-    if ((attrs.axes.x.ticker === undefined) && x.fixedtz)
-      attrs.axes.x.ticker = this.customDateTickerFixedTZ(x.tzone);
-  
-    // provide an automatic x value formatter if none is already specified
-    if ((attrs.axes.x.valueFormatter === undefined) && (x.fixedtz != true))
-      attrs.axes.x.valueFormatter = this.xValueFormatter(x.scale);
+      if (x.timezone === "local")
+        x.timezone = jstz().timezone_name;
+        
+      if (attrs.axes.x.axisLabelFormatter === undefined)
+        attrs.axes.x.axisLabelFormatter = this.xAxisLabelFormatterFixedTZ(x.timezone);    
+      if (attrs.axes.x.valueFormatter === undefined)
+        attrs.axes.x.valueFormatter = this.xValueFormatterFixedTZ(x.scale, x.timezone);
+      if (attrs.axes.x.ticker === undefined)
+        attrs.axes.x.ticker = this.customDateTickerFixedTZ(x.timezone);
+    } else {
+      // provide an automatic x value formatter if none is already specified
+      if (attrs.axes.x.valueFormatter === undefined)
+        attrs.axes.x.valueFormatter = this.xValueFormatter(x.scale);
+    }   
     
     // convert time to js time
     attrs.file[0] = attrs.file[0].map(function(value) {
