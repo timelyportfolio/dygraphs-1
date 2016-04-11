@@ -107,21 +107,6 @@ HTMLWidgets.widget({
     // if there is no existing instance perform one-time initialization
     if (!instance.dygraph) {
       
-      // subscribe to custom shown event (fired by ioslides to trigger
-      // shiny reactivity but we can use it as well). this is necessary
-      // because if a dygraph starts out as display:none it has height
-      // and width == 0 and this doesn't change when it becomes visible
-      $(el).closest('slide').on('shown', function() {
-        if (instance.dygraph)
-          instance.dygraph.resize();  
-      });
-      
-      // do the same for reveal.js
-      $(el).closest('section.slide').on('shown', function() {
-        if (instance.dygraph)
-          instance.dygraph.resize();  
-      });
-      
       // redraw on R Markdown {.tabset} tab visibility changed
       var tab = $(el).closest('div.tab-pane');
       if (tab !== null) {
